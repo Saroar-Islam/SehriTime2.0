@@ -63,6 +63,42 @@ function convertTo24Hour() {
     smoke.innerText = " " + time1;
     brush.innerText = " " + time2;
     lastTimeDiv.innerText = " " + time0;
+
+    const ifterArr = [
+        "6:10",
+        "6:10",
+        "6:11",
+        "6:11",
+        "6:12",
+        "6:12",
+        "6:12",
+        "6:13",
+        "6:13",
+        "6:13",
+        "6:14",
+        "6:14",
+        "6:14",
+        "6:15",
+        "6:15",
+        "6:16",
+        "6:16",
+        "6:17",
+        "6:17",
+        "6:18",
+        "6:18",
+        "6:19",
+        "6:19",
+        "6:19",
+        "6:20",
+        "6:20",
+        "6:21",
+        "6:21",
+        "6:21",
+        "6:22",
+    ];
+
+    const iftar = document.querySelector("#iftarTimeSpan");
+    iftar.innerText = ifterArr[daysSince - 1];
 }
 
 function reload() {

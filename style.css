@@ -27,7 +27,7 @@ body {
 
 .inputSection {
     color: yellowgreen;
-    font-family: cursive;
+    font-family: Verdana;
 }
 
 #lastTimeSpan {
@@ -77,4 +77,22 @@ button {
 #contSub div span {
     font-size: 1.5rem;
     color: rgb(92, 144, 8);
+}
+
+#iftarDiv {
+    background-color: rgb(109, 54, 161);
+}
+
+#iftarInsideDiv {
+    border-radius: 10px;
+    background: rgb(152, 93, 207);
+    padding: 10px;
+}
+
+#iftarInsideDiv div {
+    font-family: Verdana;
+    display: inline;
+    color: rgb(155, 240, 28);
+    padding: 5px;
+    font-weight: bold;
 }
