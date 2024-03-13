@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sehri time</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="contMain">
+            <div id="input">
+                <section class="inputSection">
+                    <input type="time" name="" id="inputBox" value="04:51" />
+                    <div id="lastTimeDiv">
+                        <span id="currentDate"> </span>
+                        <span id="ramadan"></span>
+                        <br />
+                        <div class="sehriTime">
+                            Sehari Last time:
+                            <span id="lastTimeSpan"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="btnSection">
+                    <button onclick="convertTo24Hour()" id="getInput">
+                        Get Input
+                    </button>
+
+                    <button onclick="reload()">Reset</button>
+                </section>
+            </div>
+
+            <div id="contSub">
+                <div>
+                    smoke:
+                    <span id="smoke"></span>
+                </div>
+
+                <div>
+                    brush:
+
+                    <span id="brush"></span>
+                </div>
+
+                <!-- <div id="lastTime"> hello </div> -->
+                <!-- <div id="daysince">day since :</div> -->
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
