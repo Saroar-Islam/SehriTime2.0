@@ -39,19 +39,19 @@ function convertTo24Hour() {
     let min = date.setMinutes(arr[1]);
 
     //lastTime
-    date.setMinutes(arr[1] - daysSince);
+    date.setMinutes(arr[1] - daysSince + 1);
 
     let time0 =
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
     //minus 1st break
-    date.setMinutes(arr[1] - 20 - daysSince);
+    date.setMinutes(arr[1] - 20 - daysSince + 1);
 
     let time1 =
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
     //minus 2nd break
-    date.setMinutes(arr[1] - 10 - daysSince);
+    date.setMinutes(arr[1] - 10 - daysSince + 1);
 
     let time2 =
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
