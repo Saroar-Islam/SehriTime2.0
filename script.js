@@ -39,7 +39,7 @@ function convertTo24Hour() {
     let min = date.setMinutes(arr[1]);
 
     //lastTime
-    date.setMinutes(arr[1] - daysSince + 1);
+    date.setMinutes(arr[1] - daysSince );
 
     let time0 =
         date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
