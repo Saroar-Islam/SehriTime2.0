@@ -17,17 +17,14 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 400px;
-    height: 130px;
+    height: 170px;
     background: rgb(109, 54, 161);
-}
-
-#inputBox {
-    display: none;
 }
 
 .inputSection {
     color: yellowgreen;
     font-family: Verdana;
+    text-align: center;
 }
 
 #lastTimeSpan {

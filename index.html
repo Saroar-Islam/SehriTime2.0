@@ -11,10 +11,16 @@
         <div id="contMain">
             <div id="input">
                 <section class="inputSection">
-                    <input type="time" name="" id="inputBox" value="04:51" />
                     <div id="lastTimeDiv">
-                        <span id="currentDate"> </span>
-                        <span id="ramadan"></span>
+                        <p>
+                            Today is :
+                            <span id="currentDate"> </span>
+                        </p>
+
+                        <p>
+                            <span id="ramadan"></span>
+                            , Ramadan
+                        </p>
                         <br />
                         <div class="sehriTime">
                             Sehari Last time:
@@ -22,19 +28,11 @@
                         </div>
                     </div>
                 </section>
-
-                <section class="btnSection">
-                    <button onclick="convertTo24Hour()" id="getInput">
-                        Get Input
-                    </button>
-
-                    <button onclick="reload()">Reset</button>
-                </section>
             </div>
 
             <div id="contSub">
                 <div>
-                    smoke:
+                    Other Stuff:
                     <span id="smoke"></span>
                 </div>
 

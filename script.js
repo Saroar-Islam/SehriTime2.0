@@ -1,110 +1,98 @@
-function convertTo24Hour() {
-    var initialDate = new Date(2024, 2, 11); // Attention: month is zero-based
-    var now = Date.now();
-    var difference = now - initialDate;
-    var millisecondsPerDay = 24 * 60 * 60 * 1000;
-    var daysSince = Math.floor(difference / millisecondsPerDay);
+const times = [
+    "05:04",
+    "05:03",
+    "05:02",
+    "05:01",
+    "05:00",
+    "04:59",
+    "04:58",
+    "04:57",
+    "04:56",
+    "04:55",
+    "04:54",
+    "04:54",
+    "04:53",
+    "04:52",
+    "04:51",
+    "04:50",
+    "04:49",
+    "04:48",
+    "04:47",
+    "04:46",
+    "04:45",
+    "04:44",
+    "04:44",
+    "04:43",
+    "04:42",
+    "04:41",
+    "04:40",
+    "04:39",
+    "04:38",
+    "04:36",
+    "04:35",
+    "04:34",
+];
 
-    const daySinceDiv = document.querySelector("#daysince");
-    // daySinceDiv.innerHTML += daysSince;
+const ifterTime = [
+    "6:02",
+    "6:03",
+    "6:03",
+    "6:04",
+    "6:04",
+    "6:05",
+    "6:05",
+    "6:06",
+    "6:06",
+    "6:07",
+    "6:07",
+    "6:08",
+    "6:08",
+    "6:09",
+    "6:09",
+    "6:09",
+    "6:10",
+    "6:10",
+    "6:11",
+    "6:11",
+    "6:12",
+    "6:12",
+    "6:13",
+    "6:13",
+    "6:14",
+    "6:14",
+    "6:15",
+];
 
-    let inputBox = document.getElementById("inputBox").value;
-    console.log("inputBox: " + inputBox);
-
-    let main = inputBox + " AM";
-    // console.log("main: " + main);
-
-    let inputTime = main;
-
-    function timeFn(timeString) {
-        let date = new Date(`01/01/2022 ${timeString}`);
-        let formattedTime = date.toLocaleTimeString("en-US", { hour12: false });
-        return formattedTime;
+// Function to subtract minutes from time
+function subtractMinutes(time, minutes) {
+    let [hours, mins] = time.split(":").map(Number);
+    mins -= minutes;
+    while (mins < 0) {
+        mins += 60;
+        hours--;
     }
-
-    let result = timeFn(main);
-
-    let arr = result.split(":");
-    // console.log(result.split(":"));
-
-    var date = new Date();
-    let currentDate = document.querySelector("#currentDate");
-    currentDate.innerHTML = date.getDate();
-    currentDate.innerHTML += " March, ";
-    let ramadan = document.querySelector("#ramadan");
-    ramadan.innerText = daysSince;
-    ramadan.innerText += " Roja";
-
-    let hour = date.setHours(arr[0]);
-    let min = date.setMinutes(arr[1]);
-
-    //lastTime
-    date.setMinutes(arr[1] - daysSince );
-
-    let time0 =
-        date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-    //minus 1st break
-    date.setMinutes(arr[1] - 20 - daysSince + 1);
-
-    let time1 =
-        date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-    //minus 2nd break
-    date.setMinutes(arr[1] - 10 - daysSince + 1);
-
-    let time2 =
-        date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-
-    let smoke = document.getElementById("smoke");
-    let brush = document.getElementById("brush");
-    let lastTimeDiv = document.getElementById("lastTimeSpan");
-
-    smoke.innerText = " " + time1;
-    brush.innerText = " " + time2;
-    lastTimeDiv.innerText = " " + time0;
-
-    const ifterArr = [
-        "6:10",
-        "6:10",
-        "6:11",
-        "6:11",
-        "6:12",
-        "6:12",
-        "6:12",
-        "6:13",
-        "6:13",
-        "6:13",
-        "6:14",
-        "6:14",
-        "6:14",
-        "6:15",
-        "6:15",
-        "6:16",
-        "6:16",
-        "6:17",
-        "6:17",
-        "6:18",
-        "6:18",
-        "6:19",
-        "6:19",
-        "6:19",
-        "6:20",
-        "6:20",
-        "6:21",
-        "6:21",
-        "6:21",
-        "6:22",
-    ];
-
-    const iftar = document.querySelector("#iftarTimeSpan");
-    iftar.innerText = ifterArr[daysSince - 1];
+    if (hours < 0) {
+        hours += 24;
+    }
+    return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
 }
 
-function reload() {
-    location.reload();
-}
+const arrayMinus10 = times.map((time) => subtractMinutes(time, 10));
+const arrayMinus20 = times.map((time) => subtractMinutes(time, 20));
 
-// var dt = new Date();
-// dt.setMinutes( dt.getMinutes() - 20 );
-// console.log('#####',dt);
+const now = new Date();
+const fullDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMonth() + 1).padStart(
+    2,
+    "0"
+)}-${now.getFullYear()}`;
+
+document.getElementById("currentDate").innerHTML = fullDate;
+
+const arrayIndex = now.getDate() - 1;
+
+document.getElementById("ramadan").innerHTML = arrayIndex;
+
+const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex]);
+const smoke = (document.getElementById("smoke").innerHTML = arrayMinus10[arrayIndex]);
+const brush = (document.getElementById("brush").innerHTML = arrayMinus20[arrayIndex]);
+const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex]);
