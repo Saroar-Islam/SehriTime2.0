@@ -88,11 +88,28 @@ const fullDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMont
 
 document.getElementById("currentDate").innerHTML = fullDate;
 
-const arrayIndex = now.getDate() - 1;
+const arrayIndex = now.getDate() - 2;
 
-document.getElementById("ramadan").innerHTML = arrayIndex;
+document.getElementById("ramadan").innerHTML = arrayIndex + 1;
 
 const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex]);
-const smoke = (document.getElementById("smoke").innerHTML = arrayMinus10[arrayIndex]);
-const brush = (document.getElementById("brush").innerHTML = arrayMinus20[arrayIndex]);
+document.getElementById("brush").innerHTML = arrayMinus10[arrayIndex];
+document.getElementById("otherStuff").innerHTML = arrayMinus20[arrayIndex];
 const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex]);
+
+const nextDaySehri = (document.getElementById("nextDaySehri").innerHTML += times[arrayIndex + 1]);
+
+// clock
+function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
+    const amPm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12; // Convert to 12-hour format
+    hours = String(hours).padStart(2, "0");
+    document.getElementById("clock").textContent = `${hours}:${minutes}:${seconds} ${amPm}`;
+}
+
+setInterval(updateTime, 1000);
+updateTime(); // Initial call to display the time immediately on page load

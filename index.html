@@ -24,7 +24,7 @@
                         <br />
                         <div class="sehriTime">
                             Sehari Last time:
-                            <span id="lastTimeSpan"></span>
+                            <span class="lastTimeSpan" id="lastTimeSpan"></span>
                         </div>
                     </div>
                 </section>
@@ -32,8 +32,10 @@
 
             <div id="contSub">
                 <div>
-                    Other Stuff:
-                    <span id="smoke"></span>
+                    <div class="clock">
+                        Time:
+                        <span id="clock"></span>
+                    </div>
                 </div>
 
                 <div>
@@ -42,12 +44,18 @@
                     <span id="brush"></span>
                 </div>
 
+                <div>
+                    Other Stuff:
+                    <span id="otherStuff"></span>
+                </div>
+
                 <div id="iftarDiv">
                     <div id="iftarInsideDiv">
                         <div id="iftarText">iftar at :</div>
 
                         <div id="iftarTimeSpan"></div>
                     </div>
+                    <p class="nextDaySehri" id="nextDaySehri">Tomorrow Sehari at :&nbsp;</p>
                 </div>
             </div>
         </div>
