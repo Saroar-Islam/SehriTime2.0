@@ -88,7 +88,7 @@ const fullDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMont
 
 document.getElementById("currentDate").innerHTML = fullDate;
 
-const arrayIndex = now.getDate() - 2;
+const arrayIndex = now.getDate() - 1;
 
 document.getElementById("ramadan").innerHTML = arrayIndex + 1;
 
