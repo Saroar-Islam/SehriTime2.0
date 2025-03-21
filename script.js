@@ -90,14 +90,14 @@ document.getElementById("currentDate").innerHTML = fullDate;
 
 const arrayIndex = now.getDate() - 1;
 
-document.getElementById("ramadan").innerHTML = arrayIndex + 1;
+document.getElementById("ramadan").innerHTML = arrayIndex;
 
 const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex]);
 document.getElementById("brush").innerHTML = arrayMinus10[arrayIndex];
 document.getElementById("otherStuff").innerHTML = arrayMinus20[arrayIndex];
 const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex]);
 
-const nextDaySehri = (document.getElementById("nextDaySehri").innerHTML += times[arrayIndex + 1]);
+const nextDaySehri = (document.getElementById("nextDaySehri").innerHTML += times[arrayIndex + 2]);
 
 // clock
 function updateTime() {
