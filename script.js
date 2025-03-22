@@ -92,7 +92,7 @@ const arrayIndex = now.getDate() - 1;
 
 document.getElementById("ramadan").innerHTML = arrayIndex;
 
-const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex]);
+const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex + 1]);
 document.getElementById("brush").innerHTML = arrayMinus10[arrayIndex];
 document.getElementById("otherStuff").innerHTML = arrayMinus20[arrayIndex];
 const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex]);
