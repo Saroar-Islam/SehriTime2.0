@@ -95,7 +95,7 @@ document.getElementById("ramadan").innerHTML = arrayIndex;
 const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex + 1]);
 document.getElementById("brush").innerHTML = arrayMinus10[arrayIndex];
 document.getElementById("otherStuff").innerHTML = arrayMinus20[arrayIndex];
-const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex]);
+const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex - 4]);
 
 const nextDaySehri = (document.getElementById("nextDaySehri").innerHTML += times[arrayIndex + 2]);
 
