@@ -1,4 +1,15 @@
-const times = [
+const sehriTimes = [
+    "05:12",
+    "05:11",
+    "05:11",
+    "05:10",
+    "05:09",
+    "05:08",
+    "05:08",
+    "05:07",
+    "05:06",
+    "05:05",
+    "05:05",
     "05:04",
     "05:03",
     "05:02",
@@ -7,9 +18,9 @@ const times = [
     "04:59",
     "04:58",
     "04:57",
+    "04:57",
     "04:56",
     "04:55",
-    "04:54",
     "04:54",
     "04:53",
     "04:52",
@@ -18,49 +29,39 @@ const times = [
     "04:49",
     "04:48",
     "04:47",
-    "04:46",
-    "04:45",
-    "04:44",
-    "04:44",
-    "04:43",
-    "04:42",
-    "04:41",
-    "04:40",
-    "04:39",
-    "04:38",
-    "04:36",
-    "04:35",
-    "04:34",
 ];
 
 const ifterTime = [
-    "6:02",
-    "6:03",
-    "6:03",
-    "6:04",
-    "6:04",
-    "6:05",
-    "6:05",
-    "6:06",
-    "6:06",
-    "6:07",
-    "6:07",
-    "6:08",
-    "6:08",
-    "6:09",
-    "6:09",
-    "6:09",
-    "6:10",
-    "6:10",
-    "6:11",
-    "6:11",
-    "6:12",
-    "6:12",
-    "6:13",
-    "6:13",
-    "6:14",
-    "6:14",
-    "6:15",
+    "05:58",
+    "05:58",
+    "05:59",
+    "05:59",
+    "06:00",
+    "06:00",
+    "06:01",
+    "06:01",
+    "06:02",
+    "06:02",
+    "06:03",
+    "06:03",
+    "06:04",
+    "06:04",
+    "06:05",
+    "06:05",
+    "06:06",
+    "06:06",
+    "06:07",
+    "06:07",
+    "06:07",
+    "06:08",
+    "06:08",
+    "06:09",
+    "06:09",
+    "06:10",
+    "06:10",
+    "06:10",
+    "06:11",
+    "06:11",
 ];
 
 // Function to subtract minutes from time
@@ -77,29 +78,44 @@ function subtractMinutes(time, minutes) {
     return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
 }
 
-const arrayMinus10 = times.map((time) => subtractMinutes(time, 10));
-const arrayMinus20 = times.map((time) => subtractMinutes(time, 20));
+const arrayMinus10 = sehriTimes.map((time) => subtractMinutes(time, 10));
+const arrayMinus20 = sehriTimes.map((time) => subtractMinutes(time, 20));
 
+// Current date
 const now = new Date();
-const fullDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMonth() + 1).padStart(
-    2,
-    "0"
-)}-${now.getFullYear()}`;
+const fullDate = `${String(now.getDate()).padStart(2, "0")}-${String(now.getMonth() + 1).padStart(2, "0")}-${now.getFullYear()}`;
 
 document.getElementById("currentDate").innerHTML = fullDate;
 
-const arrayIndex = now.getDate() - 1;
+// Ramadan day calculation (Feb 19, 2026 is day 1)
+const ramadanStart = new Date(2026, 1, 19); // Month is 0-based, so 1 = February (2026, 1, 19)
+const diffDays = Math.floor((now - ramadanStart) / (1000 * 60 * 60 * 24));
+const arrayIndex = diffDays; // 0-based index
 
-document.getElementById("ramadan").innerHTML = arrayIndex;
+document.getElementById("ramadanDay").innerHTML = arrayIndex + 1; // Display Ramadan day (1-based)
 
-const lastTimeSpan = (document.getElementById("lastTimeSpan").innerHTML = times[arrayIndex + 1]);
+// Day of the week
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const dayName = daysOfWeek[now.getDay()];
+
+document.getElementById("dayOfWeek").innerHTML = dayName;
+
+// Current Sehri
+document.getElementById("sehriLastTime").innerHTML = sehriTimes[arrayIndex];
+
+// Offsets
 document.getElementById("brush").innerHTML = arrayMinus10[arrayIndex];
 document.getElementById("otherStuff").innerHTML = arrayMinus20[arrayIndex];
-const iftarTimeSpan = (document.getElementById("iftarTimeSpan").innerHTML = ifterTime[arrayIndex - 4]);
 
-const nextDaySehri = (document.getElementById("nextDaySehri").innerHTML += times[arrayIndex + 2]);
+// Current Iftar
+document.getElementById("iftarTime").innerHTML += ifterTime[arrayIndex];
 
-// clock
+// Next day Sehri
+if (arrayIndex + 1 < sehriTimes.length) {
+    document.getElementById("nextDaySehri").innerHTML += sehriTimes[arrayIndex + 1];
+}
+
+// Clock
 function updateTime() {
     const now = new Date();
     let hours = now.getHours();
@@ -113,3 +129,6 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime(); // Initial call to display the time immediately on page load
+
+console.log("Total Sehri times:", sehriTimes.length);
+console.log("Total Iftar times:", ifterTime.length);

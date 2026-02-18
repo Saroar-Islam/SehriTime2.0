@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -8,29 +8,59 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <div id="contMain">
-            <div id="input">
-                <section class="inputSection">
-                    <div id="lastTimeDiv">
-                        <p>
-                            Today is :
-                            <span id="currentDate"> </span>
-                        </p>
+        <main class="contMain">
+            <div class="containerBox">
+                <section class="sectionTop">
+                    <div>
+                        <div>
+                            <p>
+                                Today is :
+                                <span id="currentDate"> </span> <br />
+                                <span id="dayOfWeek" class="dayOfWeek"> </span>
+                            </p>
+                            <p class="ramadanPTag">
+                                <span id="ramadanDay"></span>
+                                , Ramadan
+                            </p>
+                        </div>
 
-                        <p>
-                            <span id="ramadan"></span>
-                            , Ramadan
-                        </p>
-                        <br />
                         <div class="sehriTime">
                             Sehari Last time:
-                            <span class="lastTimeSpan" id="lastTimeSpan"></span>
+                            <span class="lastTimeSpan" id="sehriLastTime"></span>
                         </div>
                     </div>
                 </section>
-            </div>
 
-            <div id="contSub">
+                <sectioon class="sectionMid">
+                    <div class="">
+                        Time:
+                        <span id="clock"></span>
+                    </div>
+
+                    <div>
+                        brush:
+
+                        <span id="brush"></span>
+                    </div>
+
+                    <div>
+                        Other Stuff:
+                        <span id="otherStuff"></span>
+                    </div>
+                </sectioon>
+
+                <section class="sectionLower">
+                    <div id="iftarTime" class="iftterTime">iftar at :</div>
+                    <div class="nextDaySehri" id="nextDaySehri">Tomorrow Sehari at :&nbsp;</div>
+                </section>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
+
+<!-- <div id="contSub">
                 <div>
                     <div class="clock">
                         Time:
@@ -57,9 +87,4 @@
                     </div>
                     <p class="nextDaySehri" id="nextDaySehri">Tomorrow Sehari at :&nbsp;</p>
                 </div>
-            </div>
-        </div>
-
-        <script src="script.js"></script>
-    </body>
-</html>
+            </div> -->

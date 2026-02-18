@@ -2,9 +2,11 @@ body {
     background-image: url(sky.jpg);
     background-position: cover;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-#contMain {
+.contMain {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,100 +14,67 @@ body {
     flex-direction: column;
 }
 
-#input {
+.containerBox {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 400px;
-    height: 170px;
+    /* height: 170px; */
     background: rgb(109, 54, 161);
+    text-align: center;
+    border-radius: 10px;
 }
 
-.inputSection {
+.sectionTop {
     color: yellowgreen;
     font-family: Verdana;
-    text-align: center;
-}
-
-#lastTimeSpan {
-    color: rgb(155, 235, 18);
-    font-size: 1.4rem;
-}
-#ramadan,
-#currentDate {
-    font-size: 1.4rem;
-    color: rgb(155, 227, 46);
-    font-weight: bold;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .sehriTime {
-    /* border: 2px solid; */
-    padding: 5px;
-    margin: 5px 0 5px 0;
     background: rgb(152, 93, 207);
-    border-radius: 10px;
-    font-weight: bolder;
-    font-size: 1.5rem;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 0px;
 }
 
-
-.btnSection {
-    display: flex;
-    flex-direction: column;
+.sectionTop div span {
+    color: rgba(255, 255, 0, 0.874);
 }
-#contSub {
-    width: 400px;
-    height: 300px;
+
+.dayOfWeek {
+    font-size: 1rem;
+    text-align: end;
+}
+
+.sectionMid {
     background: skyblue;
-}
-
-button {
+    width: 100%;
     font-size: 1.2rem;
-    padding: 5px;
-    margin: 10px;
-}
-
-#contSub div {
-    text-align: center;
-    font-size: 1.4rem;
-    padding: 1rem;
     color: rgb(52, 6, 6);
-    /* margin-left: 40px; */
-    /* background-color: antiquewhite; */
+    padding: 18px 0;
+}
+.sectionMid div {
+    margin-bottom: 10px;
 }
 
-.clock {
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-#contSub div span {
+.sectionMid div span {
     font-size: 1.5rem;
     color: rgb(92, 144, 8);
 }
 
-#iftarDiv {
-    background-color: rgb(109, 54, 161);
-}
-
-#iftarInsideDiv {
-    border-radius: 10px;
-    background: rgb(152, 93, 207);
-    padding: 10px;
-}
-
-#iftarInsideDiv div {
+.sectionLower {
+    color: rgb(163, 241, 8);
     font-family: Verdana;
-    display: inline;
-    color: rgb(155, 240, 28);
-    padding: 5px;
-    font-weight: bold;
+    font-size: 1.2rem;
+    width: 100%;
+    padding-bottom: 20px;
 }
 
-.nextDaySehri {
-    background-color: skyblue;
-    border-radius: 50px;
-    padding: 5px;
-    margin: 3px;
-    font-size: 1rem;
+.iftterTime {
+    background: rgb(152, 93, 207);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0px;
+    margin-bottom: 10px;
 }
